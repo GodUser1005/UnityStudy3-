@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour // class이름은 대문자로 시작 새로운 단어가 나오면 대문자로 시작
 {
 
+    public GameManager gameManager;
     public float speed = 10f;
     private Rigidbody playerRigidbody;  // 변수이름은 첫글자는 소문자
 
@@ -22,6 +23,10 @@ public class Player : MonoBehaviour // class이름은 대문자로 시작 새로
     // 몇 번 실행 되는지는 정해져 있지 않음
     void Update()
     {
+        if(gameManager.isGameOver == true)
+        {
+            return;
+        }
         //if (Input.GetKey(KeyCode.W))
         //{
         //    playerRigidbody.AddForce(speed, 0, 0);  // 이 코드 보다는 아래 코드가 더 효율적이고 우아함
